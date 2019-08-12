@@ -1,7 +1,7 @@
 ---
 - name: Create the users
   user:
-    name "{{ sname }}"
+    name: "{{ sname }}"
     password: "{{ '2dum2liv' }} | password_hash('sha512') }}"
     comment: "{{ sfull }}"
     shell :/bin/bash
