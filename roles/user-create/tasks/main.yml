@@ -1,0 +1,10 @@
+---
+- name: Create the users
+  user:
+    name "{{ sname }}"
+    password: "{{ '2dum2liv' }} | password_hash('sha512') }}"
+    comment: "{{ sfull }}"
+    shell :/bin/bash
+    group: wheel
+    groups: wheel
+    home: /home/{{ sname }}
