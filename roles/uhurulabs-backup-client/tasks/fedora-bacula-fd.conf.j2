@@ -1,0 +1,26 @@
+# Fedora Config
+Director {
+  Name = {{ director }}
+  Password = {{ director-password }}
+}
+
+
+Director {
+  Name = {{ restricted-director-for-mon }}
+  Password = {{ restricted-director-password  }}
+  Monitor = yes
+}
+
+FileDaemon { 
+  Name = {{ file-daemon-name }}
+  FDport = 9102
+  WorkingDirectory = /var/spool/bacula
+  Pid Directory = /var/run
+  Maximum Concurrent Jobs = 20
+  Plugin Directory = /usr/lib64/bacula
+}
+
+Messages {
+  Name = Standard
+  director = {{ director }} = all, !skipped, !restored
+}
