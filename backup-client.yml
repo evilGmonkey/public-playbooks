@@ -1,5 +1,5 @@
 ---
-- hosts: UhurulabsBackupClients
+- hosts: all
   become: true
   roles:
     - uhurulabs-backup-client
