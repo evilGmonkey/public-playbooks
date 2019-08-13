@@ -4,6 +4,6 @@ spassword: $6$r9.fGMVXYchJdMO4$97MT.u9vOGcWfcxWkLtQjuin4luVEEm3KKcygwiIPAXqGnZEt
 sfull: "Test User"
 
 director: kula-dir
-director-password: directorpassword
-restricted-director-for-mon: restrictecdir
-restricted-director-password: restricteddirpass
+directorpassword: directorpassword
+restricteddirectorformon: restrictecdir
+restricteddirectorpassword: restricteddirpass
