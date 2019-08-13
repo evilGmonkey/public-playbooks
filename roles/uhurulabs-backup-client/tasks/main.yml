@@ -10,6 +10,8 @@
     name: bacula-client
     state: latest
   when: ansible_distribution == "Fedora"
+  
+- name: Create Bacula Config File
   template:
     src: fedora-bacula-fd.conf.j2
     dest: /etc/bacula/bacula-fd-test.conf
