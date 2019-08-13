@@ -1,18 +1,18 @@
 # Fedora Config
 Director {
   Name = {{ director }}
-  Password = {{ director-password }}
+  Password = {{ directorpassword }}
 }
 
 
 Director {
-  Name = {{ restricted-director-for-mon }}
-  Password = {{ restricted-director-password  }}
+  Name = {{ restricteddirectorformon }}
+  Password = {{ restricteddirectorpassword  }}
   Monitor = yes
 }
 
 FileDaemon { 
-  Name = {{ file-daemon-name }}
+  Name = {{ filedaemonname }}
   FDport = 9102
   WorkingDirectory = /var/spool/bacula
   Pid Directory = /var/run
