@@ -2,3 +2,5 @@
 sname: testuser
 spassword: $6$r9.fGMVXYchJdMO4$97MT.u9vOGcWfcxWkLtQjuin4luVEEm3KKcygwiIPAXqGnZEtkbTWJzfRnAHoG1wvhd8SzLLQ0cmytzMl2Pnc0
 sfull: "Test User"
+
+director: kula-dir
