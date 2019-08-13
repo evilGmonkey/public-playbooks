@@ -12,7 +12,7 @@ Director {
 }
 
 FileDaemon { 
-  Name = {{ filedaemonname }}
+  Name = {{ inventory_hostname }}
   FDport = 9102
   WorkingDirectory = /var/spool/bacula
   Pid Directory = /var/run
