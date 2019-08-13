@@ -10,13 +10,13 @@
     name: bacula-client
     state: latest
   when: ansible_distribution == "Fedora"
-  tasks:
-          - template:
-                  src: fedora-bacula-fd.conf.j2
-                  dest: /etc/bacula/bacula-fd-test.conf
-                  owner: root
-                  group: root
-                  mode: '0644'
+  template:
+    src: fedora-bacula-fd.conf.j2
+    dest: /etc/bacula/bacula-fd-test.conf
+    owner: root
+    group: root
+    mode: '0644'
+   when: ansible_distribution == "Fedora"when: ansible_distribution == "Fedora"
   
 - name: install bacula client for ubuntu systems
   apt:
