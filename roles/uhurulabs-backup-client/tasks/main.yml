@@ -1,1 +1,18 @@
 ---
+- name: install bacula client for CentOS systems
+  yum:
+    name: bacula-client
+    state: latest
+  when: ansible_distribution == "CentOS"
+  
+- name: install bacula client for Fedora systems
+  yum:
+    name: bacula-client
+    state: latest
+  when: ansible_distribution == "Fedora"
+  
+- name: install bacula client for ubuntu systems
+  apt:
+    name: bacula-client
+    state: latest
+  when: ansible_distribution == "Ubuntu"
