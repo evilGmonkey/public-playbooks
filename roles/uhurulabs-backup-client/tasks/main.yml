@@ -4,6 +4,14 @@
     name: bacula-client
     state: latest
   when: ansible_distribution == "CentOS"
+- name: Create Bacula Config File
+  template:
+    src: centos-bacula-fd.conf.j2
+    dest: /etc/bacula/bacula-fd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  when: ansible_distribution == "CentOS"
   
 - name: install bacula client for Fedora systems
   yum:
@@ -19,13 +27,22 @@
     group: root
     mode: '0644'
   when: ansible_distribution == "Fedora"
-- name: Restart service baclula client
-  service:
-    name: bacula-fd
-    state: restarted
   
 - name: install bacula client for ubuntu systems
   apt:
     name: bacula-client
     state: latest
   when: ansible_distribution == "Ubuntu"
+- name: Create Bacula Config File
+  template:
+    src: ubuntu-bacula-fd.conf.j2
+    dest: /etc/bacula/bacula-fd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  when: ansible_distribution == "Ubuntu"
+
+- name: Restart service baclula client
+  service:
+    name: bacula-fd
+    state: restarted
