@@ -9,6 +9,15 @@
     groups: wheel
     home: /home/ansible
     
+- name: Set up multiple authorized keys
+  authorized_key:
+    user: ansible
+    state: present
+    key: '{{ item }}'
+  with_file:
+    - public_keys/doe-jane
+   
+    
 - name: Add ansible to SUDO without password
   copy:
     content: 'ansible ALL=(ALL:ALL) NOPASSWD:ALL'
