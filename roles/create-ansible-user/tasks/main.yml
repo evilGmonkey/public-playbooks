@@ -15,7 +15,7 @@
     state: present
     key: '{{ item }}'
   with_file:
-    - public_keys/doe-jane
+    - public_keys/ansible-keys
    
     
 - name: Add ansible to SUDO without password
