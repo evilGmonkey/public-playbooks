@@ -1,0 +1,29 @@
+# Ubuntu Config
+Director {
+  Name = {{ director }}
+  Password = {{ directorpassword }}
+}
+
+#
+# Restricted Director, used by tray-monitor to get the
+#   status of the file daemon
+
+Director {
+  Name = {{ inventory_hostname }}
+  Password = {{ restricteddirectorpassword  }}
+  Monitor = yes
+}
+
+FileDaemon { 
+  Name = {{ inventory_hostname }}
+  FDport = 9102
+  WorkingDirectory = /var/spool/bacula
+  Pid Directory = /var/run
+  Maximum Concurrent Jobs = 20
+  Plugin Directory = /usr/lib64/bacula
+}
+
+Messages {
+  Name = Standard
+  director = {{ director }} = all, !skipped, !restored
+}
