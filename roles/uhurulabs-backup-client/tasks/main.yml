@@ -6,7 +6,7 @@
   when: ansible_distribution == "CentOS"
 - name: Create Bacula Config File
   template:
-    src: centos-bacula-fd.conf.j2
+    src: cent-fed-rh-bacula-fd.conf.j2
     dest: /etc/bacula/bacula-fd.conf
     owner: root
     group: root
@@ -21,7 +21,7 @@
   
 - name: Create Bacula Config File
   template:
-    src: fedora-bacula-fd.conf.j2
+    src: cent-fed-rh-bacula-fd.conf.j2
     dest: /etc/bacula/bacula-fd.conf
     owner: root
     group: root
