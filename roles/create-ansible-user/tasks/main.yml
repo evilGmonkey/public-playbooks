@@ -1,1 +1,16 @@
 ---
+- name: Create Ansible User
+  user:
+    name: ansible
+    password: '$6$7qz/arm2/BlZeSzD$v.dlF6p8A3VaswgsB8Vadcnc9pkPOFqTUkh73gBmLKOsy3hiqnF0Ufectl7dW0XSizDUbtiO1LFuS.O/iCwaE.'
+    comment: 'User for ansible automation
+    shell: /bin/bash
+    group: wheel
+    groups: wheel
+    home: /home/ansible
+    
+- name: Add ansible to SUDO without password
+  copy:
+    content: 'ansible ALL=(ALL:ALL) NOPASSWD:ALL'
+    dest: /etc/sudoers.d/wheel_nopasswd
+    mode: 0440
