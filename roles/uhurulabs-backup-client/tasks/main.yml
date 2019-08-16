@@ -14,11 +14,15 @@
 - name: Create Bacula Config File
   template:
     src: fedora-bacula-fd.conf.j2
-    dest: /etc/bacula/bacula-fd-test.conf
+    dest: /etc/bacula/bacula-fd.conf
     owner: root
     group: root
     mode: '0644'
   when: ansible_distribution == "Fedora"
+- name: Restart service baclula client
+  service:
+    name: bacula-fd
+    state: restarted
   
 - name: install bacula client for ubuntu systems
   apt:
