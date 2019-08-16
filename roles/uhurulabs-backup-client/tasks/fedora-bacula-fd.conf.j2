@@ -4,9 +4,12 @@ Director {
   Password = {{ directorpassword }}
 }
 
+#
+# Restricted Director, used by tray-monitor to get the
+#   status of the file daemon
 
 Director {
-  Name = {{ restricteddirectorformon }}
+  Name = {{ inventory_hostname }}
   Password = {{ restricteddirectorpassword  }}
   Monitor = yes
 }
