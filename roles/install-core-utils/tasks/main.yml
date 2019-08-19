@@ -1,1 +1,12 @@
----
+- name: Install common software requirements
+  become: true
+  yum:
+    state: present
+    name: 
+      - yum-plugin-fastestmirror
+      - wget
+      - git
+      - screen
+      - bash-completion
+      - mlocate
+      - elinks
