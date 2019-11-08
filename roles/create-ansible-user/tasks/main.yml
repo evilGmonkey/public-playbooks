@@ -1,4 +1,9 @@
 ---
+- name: Ensure group "wheel" exists
+  group:
+    name: wheel
+    state: present
+
 - name: Create Ansible User
   user:
     name: ansible
