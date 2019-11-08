@@ -33,6 +33,13 @@
     name: bacula-client
     state: latest
   when: ansible_distribution == "Ubuntu"
+- name: Create Working Directory
+  file:
+    path: /var/spool/bacula
+    state: directory
+    owner: bacula
+    group: bacula
+    mode: 0775
 - name: Create Bacula Config File
   template:
     src: ubuntu-bacula-fd.conf.j2
