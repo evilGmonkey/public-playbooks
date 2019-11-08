@@ -1,3 +1,6 @@
+- set_fact:  
+    ansible_facts:  
+      pkg_mgr: yum
 - name: Install common software requirements
   become: true
   yum:
