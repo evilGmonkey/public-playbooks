@@ -1,6 +1,6 @@
 - name: Install common software requirements
   yum:
-    state: latest
+    state: present
     name: 
       - yum-plugin-fastestmirror
       - wget
