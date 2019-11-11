@@ -7,3 +7,5 @@ director: kula-dir
 directorpassword: directorpassword
 restricteddirectorformon: restrictecdir
 restricteddirectorpassword: restricteddirpass
+
+ocs_dir: "/opt/ocsinventory"
