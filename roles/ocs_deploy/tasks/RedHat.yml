@@ -4,5 +4,5 @@
   when: (ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS') and ansible_distribution_major_version == '7'
 
 - name: Deploy OCS Agent for RedHat/CentOS 6
-  unarchive:  src={{ ocs_agent_package_debian_6 }} dest=/
+  unarchive:  src={{ ocs_agent_package_rhel_6 }} dest=/
   when: (ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS') and ansible_distribution_major_version == '6'
