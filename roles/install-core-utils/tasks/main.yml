@@ -9,4 +9,3 @@
       - bash-completion
       - mlocate
       - elinks
-    when: ansible_distribution == "CentOS" or ansible_distribution == "Fedora"
