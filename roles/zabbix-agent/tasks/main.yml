@@ -6,7 +6,7 @@
 - name: check OS
   debug: msg={{ansible_distribution}}-{{ansible_distribution_version}}
 
-### centOS 7
+### RPM
 - name: disable SELinux
   selinux:
     state: disabled
@@ -16,12 +16,7 @@
     state: present
     key: https://repo.zabbix.com/zabbix-official-repo.key
 
-- name: install zabbix centOS 7 rpm file
-  yum:
-    name: "{{ centos7_link }}"
-  when: ansible_os_family == "RedHat"
-
-- name: install zabbix-agent 4.4 for centOS 7
+- name: install zabbix-agent 5.2-1.el8
   yum:
     name: zabbix-agent
     enablerepo: zabbix
@@ -195,11 +190,11 @@
 - rpm_key:
     state: present
     key: https://repo.vulners.com/pubkey.txt
-- name: install plugin repo centOS 7 rpm file
+- name: install plugin vukners repo  rpm file
   yum: name=https://repo.vulners.com/redhat/vulners-repo.rpm
   when: ansible_os_family == "RedHat"
 
-- name: install plugin for centOS 7
+- name: install plugin for vukners rpm
   yum: name=zabbix-threat-control-host
   when: ansible_os_family == "RedHat"
 
