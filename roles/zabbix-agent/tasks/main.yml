@@ -187,36 +187,6 @@
     regexp: '# LogRemoteCommands=0'
     line: 'LogRemoteCommands=1'
 
-##### Install Vulners plugin
-### CentOS7
-- rpm_key:
-    state: present
-    key: https://repo.vulners.com/pubkey.txt
-- name: install plugin vukners repo  rpm file
-  yum: name=https://repo.vulners.com/redhat/vulners-repo.rpm
-  when: ansible_os_family == "RedHat"
-
-- name: install plugin for vukners rpm
-  yum: name=zabbix-threat-control-host
-  when: ansible_os_family == "RedHat"
-
-### Debian
-- name: download plugin deb file for Debian
-  get_url:
-    url: https://repo.vulners.com/debian/vulners-repo.deb
-    dest: /tmp/vulners-repo.deb
-  when: ansible_os_family == "Debian"
-
-- name: install plugin deb in Debian
-  apt: deb="/tmp/vulners-repo.deb"
-  when: ansible_os_family == "Debian"
-
-- name: install plugin Debian
-  apt:
-    name: zabbix-threat-control-host
-    update_cache: yes
-  when: ansible_os_family == "Debian"
-
 ### Starting zabbix-agent
 - name: Make sure a service is started
   systemd: state=started name=zabbix-agent
