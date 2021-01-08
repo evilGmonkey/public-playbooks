@@ -15,7 +15,9 @@
 - rpm_key:
     state: present
     key: https://repo.zabbix.com/zabbix-official-repo.key
-
+- name: Add Zabbix Repo
+  yum:
+    name: " {{ el8_zabbix_repo }}"
 - name: install zabbix-agent 5.2-1.el8
   yum:
     name: zabbix-agent
