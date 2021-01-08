@@ -14,7 +14,7 @@
 
 - rpm_key:
     state: present
-    key: https://repo.zabbix.com/zabbix-official-repo.key 
+    key: https://repo.zabbix.com/zabbix-official-repo.key
 
 - name: install zabbix centOS 7 rpm file
   yum:
@@ -192,6 +192,9 @@
 
 ##### Install Vulners plugin
 ### CentOS7
+- rpm_key:
+    state: present
+    key: https://repo.vulners.com/pubkey.txt
 - name: install plugin repo centOS 7 rpm file
   yum: name=https://repo.vulners.com/redhat/vulners-repo.rpm
   when: ansible_os_family == "RedHat"
