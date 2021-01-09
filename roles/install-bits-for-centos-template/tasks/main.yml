@@ -4,8 +4,8 @@
     name:
       - acpid
       - cloud-init
-      - cloud-init-growpart
-      
+      - cloud-utils-growpart
+
 - name: Restart acpid
   service:
     name: acpid
