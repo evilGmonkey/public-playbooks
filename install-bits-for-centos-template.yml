@@ -1,0 +1,5 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - install-bits-for-centos-template

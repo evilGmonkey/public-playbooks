@@ -1,0 +1,18 @@
+- name: Install bits for centos template
+  yum:
+    state: present
+    name:
+      - acpid
+      - cloud-init
+      - cloud-init-growpart
+      
+- name: Restart acpid
+  service:
+    name: acpid
+    state: restarted
+
+- name: Enable acpid
+  systemd:
+    name: acpid
+    enabled: yes
+    masked: no
