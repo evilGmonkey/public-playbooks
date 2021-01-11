@@ -2,16 +2,16 @@
 - hosts: all
   become: true
   tasks:
-   - name: Add group "uhurudev" to remote server
-     group:
-       name: uhurudev
-       gid: 2000
-       state: present
-
    - name: Add group "uhurulabs" to remote server
      group:
        name: uhurulabs
-       gid: 1000
+       gid: 2000
+       state: present
+
+   - name: Add group "uhurudev" to remote server
+     group:
+       name: uhurudev
+       gid: 3000
        state: present
 
    - name: Add user "egm" to remote server
@@ -31,7 +31,7 @@
      user:
        name: emil
        comment: "Emil"
-       uid: 2001
+       uid: 3001
        group: uhurudev
        shell: /bin/bash
        generate_ssh_key: yes
