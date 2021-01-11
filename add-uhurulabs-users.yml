@@ -2,12 +2,6 @@
 - hosts: all
   become: true
   tasks:
-  
-   - name: Add Wheel Group
-    group:
-      name: wheel
-      state: present
-   
    - name: Allow 'wheel' group to have passwordless sudo
     lineinfile:
         dest: /etc/sudoers
