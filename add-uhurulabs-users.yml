@@ -1,0 +1,41 @@
+---
+- hosts: all
+  become: true
+  tasks:
+   - name: Add group "uhurudev" to remote server
+     group:
+       name: uhurudev
+       gid: 2000
+       state: present
+
+   - name: Add group "uhurulabs" to remote server
+     group:
+       name: uhurulabs
+       gid: 1000
+       state: present
+
+   - name: Add user "egm" to remote server
+     user:
+       name: egm
+       comment: "egm"
+       uid: 1000
+       group: root
+       groups: uhurulabs,uhurudev
+       append: yes
+       shell: /bin/bash
+       generate_ssh_key: yes
+       ssh_key_bits: 2048
+       ssh_key_file: .ssh/id_rsa
+
+   - name: Add user "emil" to remote server
+     user:
+       name: emil
+       comment: "Emil"
+       uid: 2001
+       group: uhurudev
+       shell: /bin/bash
+       generate_ssh_key: yes
+       ssh_key_bits: 2048
+       ssh_key_file: .ssh/id_rsa
+
+...
