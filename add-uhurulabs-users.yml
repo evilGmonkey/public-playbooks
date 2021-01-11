@@ -3,7 +3,7 @@
   become: true
   tasks:
    - name: Allow 'wheel' group to have passwordless sudo
-    lineinfile:
+     lineinfile:
         dest: /etc/sudoers
         state: present
         regexp: '^%wheel'
