@@ -2,7 +2,7 @@
 - hosts: all
   become: true
   tasks:
-  - name: Make sure we have a 'wheel' group
+  - name: Make sure we have a 'whdeel' group
     group:
       name: wheel
       state: present
