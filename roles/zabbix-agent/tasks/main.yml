@@ -120,6 +120,24 @@
     state: latest
     update_cache: yes
   when: ansible_distribution_release == 'bionic'
+  
+### Ubuntu 20
+- name: download zabbix deb file fot Ubuntu 20
+  get_url:
+    url: "{{ ubuntu20_link }}"
+    dest: "/tmp/{{ ubuntu20_file }}"
+  when: ansible_distribution_release == 'focal'
+
+- name: install zabbix deb for Ubuntu 18.04 Xenial
+  apt: deb="/tmp/{{ ubuntu18_file }}"
+  when: ansible_distribution_release == 'focal'
+
+- name: install zabbix-agent 5 Ubuntu 20
+  apt:
+    name: zabbix-agent
+    state: latest
+    update_cache: yes
+  when: ansible_distribution_release == 'focal'
 
 ##### enabled zabbix-agent
 - name: enable service zabbix-agent and ensure it is not masked
