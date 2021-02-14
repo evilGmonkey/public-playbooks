@@ -1,0 +1,34 @@
+---
+##### Install zabbix-agent
+- name: ping hosts
+  ping:
+
+- name: check OS
+  debug: msg={{ansible_distribution}}-{{ansible_distribution_version}}
+
+- rpm_key:
+    state: present
+    key: https://repo.zabbix.com/zabbix-official-repo.key
+  when: ansible_os_family == "RedHat"
+
+- name: Add PostgreSQL Repo
+  yum:
+    name: "https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+  when: ansible_os_family == "RedHat"
+
+- name: install postgresql13
+  yum:
+    name: postgresql13
+    state: latest
+  when: ansible_os_family == "RedHat"
+
+- name: install postgresql13-server
+  yum:
+    name: postgresql13-server
+    state: latest
+  when: ansible_os_family == "RedHat"
+
+### Starting zabbix-agent
+- name: Make sure a service is started
+  systemd: state=started name=zabbix-agent
+  become: yes

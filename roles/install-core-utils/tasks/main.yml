@@ -1,6 +1,29 @@
 - name: Install common software requirements
+
+### Ubuntu
+
+- name: install Uhu Tools on Ubuntu
+  apt:
+    name:
+      - wget
+      - git
+      - bash-completion
+      - mlocate
+      - vim
+      - rsync
+      - curl
+      - telnet
+      - net-tools
+      - unzip
+      - lvm2
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == 'ubuntu'
+
+### Centos
+
+- name: install Uhu Tools on Centos
   yum:
-    state: present
     name:
       - wget
       - git
@@ -8,10 +31,12 @@
       - mlocate
       - epel-release
       - vim
-      - bash-completion
       - rsync
       - curl
       - telnet
       - net-tools
       - unzip
       - lvm2
+    state: latest
+    update_cache: yes
+  when: ansible_distribution_ == 'CentOS'
