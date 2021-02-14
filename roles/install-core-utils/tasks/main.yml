@@ -40,3 +40,30 @@
     state: latest
     update_cache: yes
   when: ansible_distribution == 'CentOS'
+
+- name: Create Centos snmpd config
+  template:
+    src: snmpd.conf.j2
+    dest: /etc/snmp/snmpd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  when: ansible_distribution == "CentOS"
+
+- name: Create Ubuntu snmpd config
+  template:
+    src: snmpd.conf.j2
+    dest: /etc/snmp/snmpd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  when: ansible_distribution == "Ubuntu"
+
+- name: Copy the distro script to get OS information on Observium.
+  template:
+    src: distro.j2
+    dest: /usr/local/bin
+    owner: root
+    group: root
+    mode: '0777'
+  
