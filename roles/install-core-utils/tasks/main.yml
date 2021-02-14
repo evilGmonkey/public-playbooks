@@ -66,4 +66,9 @@
     owner: root
     group: root
     mode: '0777'
-  
+
+- name: Restart and enable snmpd
+  service:
+    name: snmpd
+    enabled: yes
+    state: restarted
