@@ -14,6 +14,7 @@
       - net-tools
       - unzip
       - lvm2
+      - snmpd
     state: latest
     update_cache: yes
   when: ansible_distribution == 'ubuntu'
@@ -35,6 +36,7 @@
       - net-tools
       - unzip
       - lvm2
+      - net-snmp
     state: latest
     update_cache: yes
   when: ansible_distribution_ == 'CentOS'
