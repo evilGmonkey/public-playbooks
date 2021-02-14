@@ -17,7 +17,7 @@
       - snmpd
     state: latest
     update_cache: yes
-  when: ansible_distribution == 'ubuntu'
+  when: ansible_distribution == 'Ubuntu'
 
 ### Centos
 
@@ -39,4 +39,4 @@
       - net-snmp
     state: latest
     update_cache: yes
-  when: ansible_distribution_ == 'CentOS'
+  when: ansible_distribution == 'CentOS'
