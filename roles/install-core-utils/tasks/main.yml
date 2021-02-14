@@ -1,5 +1,3 @@
-- name: Install common software requirements
-
 ### Ubuntu
 
 - name: install Uhu Tools on Ubuntu
