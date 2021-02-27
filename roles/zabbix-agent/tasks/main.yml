@@ -22,9 +22,9 @@
     name: " {{ el8_zabbix_repo }}"
   when: ansible_os_family == "RedHat"
   
-- name: install zabbix-agent 5.2-1.el8
+- name: install zabbix-agent 
   yum:
-    name: zabbix-agent-5.2.1-1.el8.x86_64
+    name: zabbix-agent
     enablerepo: zabbix
     update_cache: true
     state: latest
