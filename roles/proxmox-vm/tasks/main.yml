@@ -1,0 +1,45 @@
+---
+##### Install qemu-agent
+- name: ping hosts
+  ping:
+
+- name: check OS
+  debug: msg={{ansible_distribution}}-{{ansible_distribution_version}}
+
+
+
+- name: install zabbix-agent
+  yum:
+    name: qemu-guest-agent
+    update_cache: true
+    state: latest
+  when: ansible_os_family == "RedHat"
+
+
+- name: install qemu-guest-agent Ubuntu 18.04
+  apt:
+    name: qemu-guest-agent
+    state: latest
+    update_cache: yes
+  when: ansible_distribution_release == 'bionic'
+
+- name: install zabbix-agent 5 Ubuntu 20
+    apt:
+      name: qemu-guest-agent
+      state: latest
+      update_cache: yes
+  when: ansible_distribution_release == 'focal'
+
+##### enabled qemu-guest-agent
+- name: enable service qemu-guest-agent and ensure it is not masked
+  systemd:
+    name: qemu-guest-agent
+    enabled: yes
+    masked: no
+  become: yes
+
+#
+### Starting qemu-guest-agent
+- name: Make sure a service is started
+  systemd: state=started name=zabbix-agent
+  become: yes
