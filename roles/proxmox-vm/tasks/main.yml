@@ -8,7 +8,7 @@
 
 
 
-- name: install zabbix-agent
+- name: install qemu-guest-agent
   yum:
     name: qemu-guest-agent
     update_cache: true
@@ -23,7 +23,7 @@
     update_cache: yes
   when: ansible_distribution_release == 'bionic'
 
-- name: install zabbix-agent 5 Ubuntu 20
+- name: install qemu-guest-agent Ubuntu 20
   apt:
     name: qemu-guest-agent
     state: latest
@@ -41,5 +41,5 @@
 #
 ### Starting qemu-guest-agent
 - name: Make sure a service is started
-  systemd: state=started name=zabbix-agent
+  systemd: state=started name=qemu-guest-agent
   become: yes
