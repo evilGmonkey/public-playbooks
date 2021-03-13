@@ -24,10 +24,10 @@
   when: ansible_distribution_release == 'bionic'
 
 - name: install zabbix-agent 5 Ubuntu 20
-    apt:
-      name: qemu-guest-agent
-      state: latest
-      update_cache: yes
+  apt:
+    name: qemu-guest-agent
+    state: latest
+    update_cache: yes
   when: ansible_distribution_release == 'focal'
 
 ##### enabled qemu-guest-agent
